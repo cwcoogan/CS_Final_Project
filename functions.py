@@ -17,7 +17,7 @@ def splash_screen():
     for 3 total seconds and then it goes away
     """
     screen = turtle.Screen()
-    screen.setup(1000, 1000)
+    screen.setup(800, 800)
     turtle.hideturtle()
     t1 = turtle.Turtle()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")

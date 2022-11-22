@@ -7,7 +7,7 @@ puzzle_game.py
 
 from functions import *
 import turtle
-import time
+
 
 # initialize turtle
 screen = turtle.Screen()
