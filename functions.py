@@ -1,19 +1,13 @@
 """
 Chase Coogan
-CS 5001
 Fall 2022
-Final Project Testing
+CS 5001
+helper file storing classes and functions
+for the puzzle game.
 """
 
 import turtle
 import time
-
-# initialize turtle
-screen = turtle.Screen()
-screen.setup(1000, 1000)
-turtle.hideturtle()
-# screen.update()
-
 
 def splash_screen():
     """
@@ -22,6 +16,9 @@ def splash_screen():
     initializes the splash screen and sets it to appear 
     for 3 total seconds and then it goes away
     """
+    screen = turtle.Screen()
+    screen.setup(1000, 1000)
+    turtle.hideturtle()
     t1 = turtle.Turtle()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
     t1.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
@@ -98,12 +95,3 @@ def store_rectangles():
     rectangle3 = RectangleDimensions(550, 100, -250,-300, "black")
     rectangle3.go_to()
     rectangle3.draw()
-
-def main():
-    splash_screen()
-    user_input()
-    store_rectangles()
-
-    screen.exitonclick()
-if __name__ == "__main__":
-    main()
