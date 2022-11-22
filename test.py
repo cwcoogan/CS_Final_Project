@@ -45,27 +45,65 @@ def user_input():
 
     
 class RectangleDimensions:
-    def __init__(self, length, width, x_coord, y_coord):
+    """
+    Class - RectangleDimensions
+
+    this class takes the length, width, coordinates and color
+    to create a rectangle. This will be used to configure the 
+    gameboard.
+    """
+    def __init__(self, length, width, x_coord, y_coord, color):
         self.length = length
         self.width = width
-        self.x = x_coord
-        self.y = y_coord
+        self.x_coord = x_coord
+        self.y_coord = y_coord
+        self.color = color
 
     def go_to(self):
         turtle.penup()
-        turtle.goto(self.x, self.y)
+        turtle.goto(self.x_coord, self.y_coord)
         turtle.pendown()
+        turtle.color(self.color)
+        turtle.pensize(4)
+        turtle.speed(0)
 
     def draw(self):
-        turtle.right(self.length)
-        turtle.backward(self.width)
-        turtle.right(self.length)
-        turtle.backward(self.width)
+        turtle.forward(self.length)
+        turtle.left(90)
+
+        turtle.forward(self.width)
+        turtle.left(90)
+        
+        turtle.forward(self.length)
+        turtle.left(90)
+
+        turtle.forward(self.width)
+        turtle.left(90)
+
+def store_rectangles():
+    """
+    Function -- store_rectangles()
+
+    calling each rectangle object here to
+    free up the main
+    """
+    rectangle1 = RectangleDimensions(175, 450, 120, -150, "blue")
+    rectangle1.go_to()
+    rectangle1.draw()
+
+    rectangle2 = RectangleDimensions(350, 450, -250, -150, "black")
+    rectangle2.go_to()
+    rectangle2.draw()
+
+    rectangle3 = RectangleDimensions(550, 100, -250,-300, "black")
+    rectangle3.go_to()
+    rectangle3.draw()
 
 def main():
     splash_screen()
     user_input()
+    store_rectangles()
 
-    # screen.exitonclick()
+    screen.exitonclick()
 if __name__ == "__main__":
     main()
