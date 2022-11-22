@@ -1,2 +1,3 @@
-# CS_Final_Project
+# Final project for CS 5001.
+
 Repository to store my final project for CS5001
