@@ -16,6 +16,10 @@ def main():
     splash_screen()
     user_input()
     store_rectangles()
+    quit_button()
+    load_button()
+    reset_button()
+    leaderboard_img()
 
     screen.exitonclick()
 if __name__ == "__main__":

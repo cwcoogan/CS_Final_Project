@@ -9,6 +9,9 @@ for the puzzle game.
 import turtle
 import time
 
+screen = turtle.Screen()
+screen.setup(800, 730)
+
 def splash_screen():
     """
     Function splash_screen
@@ -16,8 +19,6 @@ def splash_screen():
     initializes the splash screen and sets it to appear 
     for 3 total seconds and then it goes away
     """
-    screen = turtle.Screen()
-    screen.setup(800, 800)
     turtle.hideturtle()
     t1 = turtle.Turtle()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
@@ -84,14 +85,45 @@ def store_rectangles():
     calling each rectangle object here to
     free up the main
     """
-    rectangle1 = RectangleDimensions(175, 450, 120, -150, "blue")
+    rectangle1 = RectangleDimensions(175, 392, 120, -150, "blue")
     rectangle1.go_to()
     rectangle1.draw()
 
-    rectangle2 = RectangleDimensions(350, 450, -250, -150, "black")
+    rectangle2 = RectangleDimensions(350, 392, -250, -150, "black")
     rectangle2.go_to()
     rectangle2.draw()
 
     rectangle3 = RectangleDimensions(550, 100, -250,-300, "black")
     rectangle3.go_to()
     rectangle3.draw()
+
+
+def quit_button():
+    t2 = turtle.Turtle()
+    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
+    t2.goto(250, -250)
+    t2.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
+
+    # add the utility of this button with clicks
+
+def load_button():
+    t3 = turtle.Turtle()
+    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
+    t3.goto(150, -250)
+    t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
+
+def reset_button():
+    t4 = turtle.Turtle()
+    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
+    t4.goto(50, -250)
+    t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
+
+
+    
+# run this through a loop based on what puzzle is loaded
+# so it will change the img with a conditional if mario or luigi...etc is chosen
+def leaderboard_img():
+    t5 = turtle.Turtle()
+    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
+    t5.goto(280, 250)
+    t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
