@@ -6,6 +6,7 @@ puzzle_game.py
 """
 
 from functions import *
+from GeneratePuzzle import *
 import turtle
 
 
@@ -21,6 +22,8 @@ def main():
     reset_button()
     leaderboard_img()
     leaderboard()
+    GeneratePuzzle.get_fifteen()
+
 
     screen.exitonclick()
 if __name__ == "__main__":
