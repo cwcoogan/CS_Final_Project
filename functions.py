@@ -43,6 +43,7 @@ def user_input():
         num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
 
     
+    
 class RectangleDimensions:
     """
     Class - RectangleDimensions
@@ -133,7 +134,7 @@ def leaderboard_img():
     t5 = turtle.Turtle()
     t5.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
-    t5.goto(280, 250)
+    t5.goto(250, 220)
     t5.pendown()
     t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
     
@@ -145,7 +146,7 @@ def leaderboard_img():
 def leaderboard():
     t6 = turtle.Turtle()
     t6.penup()
-    t6.goto(150, 150)
+    t6.goto(130, 215)
     t6.pendown()
     t6.color("blue")
     t6.write("Leaders: ", font=("Ariel", 15, "normal"))
