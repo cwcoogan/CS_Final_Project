@@ -12,6 +12,7 @@ import time
 screen = turtle.Screen()
 screen.setup(800, 730)
 
+
 def splash_screen():
     """
     Function splash_screen
@@ -36,7 +37,7 @@ def user_input():
     """
     name = turtle.textinput("CS5001 Puzzle Slide", "Your Name: ")
     num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
-    
+
     # checks to see if the number of chances is within the range of 5-200
     while num_moves < 5 or num_moves > 200:
         num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
@@ -100,22 +101,28 @@ def store_rectangles():
 
 def quit_button():
     t2 = turtle.Turtle()
+    t2.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
     t2.goto(250, -250)
+    t2.pendown()
     t2.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
 
     # add the utility of this button with clicks
 
 def load_button():
     t3 = turtle.Turtle()
+    t3.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
     t3.goto(150, -250)
+    t3.pendown()
     t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
 
 def reset_button():
     t4 = turtle.Turtle()
+    t4.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
     t4.goto(50, -250)
+    t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
 
 
@@ -124,6 +131,26 @@ def reset_button():
 # so it will change the img with a conditional if mario or luigi...etc is chosen
 def leaderboard_img():
     t5 = turtle.Turtle()
+    t5.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
     t5.goto(280, 250)
+    t5.pendown()
     t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
+    
+
+# create a function to store the leaderboards
+# store in a dict
+# Key = name 
+# Value = score
+def leaderboard():
+    t6 = turtle.Turtle()
+    t6.penup()
+    t6.goto(150, 150)
+    t6.pendown()
+    t6.color("blue")
+    t6.write("Leaders: ", font=("Ariel", 15, "normal"))
+    leader = {}
+
+    
+    # need to store leaderboard in a data structure (dictionary)
+

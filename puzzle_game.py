@@ -20,6 +20,7 @@ def main():
     load_button()
     reset_button()
     leaderboard_img()
+    leaderboard()
 
     screen.exitonclick()
 if __name__ == "__main__":
