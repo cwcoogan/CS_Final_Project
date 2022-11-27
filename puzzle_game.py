@@ -8,7 +8,7 @@ puzzle_game.py
 from functions import *
 from GeneratePuzzle import *
 import turtle
-
+import random
 
 # initialize turtle
 screen = turtle.Screen()
@@ -23,7 +23,7 @@ def main():
     leaderboard_img()
     leaderboard()
     GeneratePuzzle.get_fifteen()
-
+    keep_score()
 
     screen.exitonclick()
 if __name__ == "__main__":

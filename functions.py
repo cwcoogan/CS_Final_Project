@@ -8,6 +8,7 @@ for the puzzle game.
 
 import turtle
 import time
+import random
 
 screen = turtle.Screen()
 screen.setup(800, 730)
@@ -40,8 +41,7 @@ def user_input():
 
     # checks to see if the number of chances is within the range of 5-200
     while num_moves < 5 or num_moves > 200:
-        num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
-
+        num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))   
     
     
 class RectangleDimensions:
@@ -150,11 +150,30 @@ def leaderboard():
     t6.pendown()
     t6.color("blue")
     t6.write("Leaders: ", font=("Ariel", 15, "normal"))
+    t6.hideturtle()
     leader = {}
 
     
     # need to store leaderboard in a data structure (dictionary)
 
+def keep_score():
+    """
+    FUNCTION -- keep_score()
 
-
+    this function keeps score and displays the 
+    number of of attempts the player has performed.
+    it will break if the user wins, or if the user 
+    reaches their attempt limit
+    """
+    count = 0
+    t7 = turtle.Turtle()
+    t7.penup()
+    t7.goto(-230, -260)
+    t7.pendown()
+    t7.color('blue')
+    t7.write('Player Attempts: 0', font=("Ariel", 15, "normal"))
+    t7.hideturtle()
+    # need to iterate through count and display the total number based
+    # on clicks.. 
+    # cant build this fully until the click function is built.
 

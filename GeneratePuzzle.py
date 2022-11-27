@@ -1,5 +1,6 @@
 import turtle
 from functions import *
+import random
 
 """
 NOT DONE *** Need to traverse every puzzle and store each imgs # of imgs as 
@@ -36,6 +37,12 @@ class GeneratePuzzle:
         return puzzle    
     
     def get_fifteen():
+        """
+        METHOD -- get_fifteen
+
+        this function stores the puzzle fifteen as a list and 
+        returns the key as the index and values as the images
+        """
         puzzle = []
         with open("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/fifteen.puz", "r") as f:
             puzzle = f.readlines()
