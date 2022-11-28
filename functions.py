@@ -81,7 +81,9 @@ def quit_button():
 
 def select_puzzle(x, y):
     selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfamily.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
-    
+    path = "slider_puzzle_project_fall2021_assets-2022/" + selection
+    load_puzzle(path)
+
 def load_button():
     t3 = turtle.Turtle()
     t3.penup()
@@ -149,7 +151,8 @@ def keep_score():
     # cant build this fully until the click function is built.
 
 
-def load_puzzle(lst=GeneratePuzzle.get_mario()):
+def load_puzzle(p):
+    lst = get_puzzle(p)
     x = -286.5
     y = 191
     count = 0

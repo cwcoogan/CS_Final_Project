@@ -22,10 +22,10 @@ def main():
     reset_button()
     leaderboard_img()
     leaderboard()
-    GeneratePuzzle.get_mario()
     keep_score()
-    load_puzzle()
+    load_puzzle("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz")
     
-    screen.exitonclick()
+
+    screen.mainloop()
 if __name__ == "__main__":
     main()
