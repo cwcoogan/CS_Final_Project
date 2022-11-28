@@ -15,7 +15,7 @@ screen = turtle.Screen()
 
 def main():
     #splash_screen()
-    # user_input()
+    #user_input()
     store_rectangles()
     quit_button()
     load_button()

@@ -40,10 +40,12 @@ class GeneratePuzzle:
         for each in puzzle:
             puzzle = each.strip().split(": ")
             combine[puzzle[0]] = puzzle[1]
-        # print(combine)
+        
 
         # storing thumbnail in a variable
         thumbnail = combine['thumbnail']
+        number = int(combine['number'])
+        
 
         # un-shuffled keys and dictionary
         keys_dict = {}
@@ -60,7 +62,7 @@ class GeneratePuzzle:
         keys_dict_shuffled = {}
         for key in keys:
             keys_dict_shuffled.update({key: keys_dict[key]})
-        print(keys_dict_shuffled)
+        # print(keys_dict_shuffled)
 
         # unshuffled image path file
         img_list = []
@@ -68,7 +70,7 @@ class GeneratePuzzle:
             image_path = keys_dict[i]
             img_list.append(image_path)
         
-        return img_list
+        return img_list, number
 
         # shuffled image path files
         shuffled_img_list = []

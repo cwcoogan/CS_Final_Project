@@ -6,6 +6,7 @@ helper file storing classes and functions
 for the puzzle game.
 """
 
+from math import *
 from GeneratePuzzle import *
 import turtle
 import time
@@ -185,7 +186,10 @@ def keep_score():
 def load_puzzle(lst=GeneratePuzzle.get_mario()):
     x = -286.5
     y = 191
-    for path in lst:
+    count = 0
+    img_list, number = lst
+    sq_rt = floor(sqrt(number))
+    for path in img_list:
         t8 = turtle.Turtle()
         t8.penup()
         t8.goto(x, y)
@@ -194,12 +198,14 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
         path = "slider_puzzle_project_fall2021_assets-2022/" + path
         screen.addshape(path)
         t8.shape(path)
+        count += 1
         #2nd img
-        if x <= 50:
+        if x <= 50 and count < sq_rt:
             x = x + 112.5
         else:
             x = -286.5
             y = y - 98
+            count = 0
 
     
     
