@@ -62,8 +62,16 @@ class GeneratePuzzle:
             keys_dict_shuffled.update({key: keys_dict[key]})
         print(keys_dict_shuffled)
 
-        # image path files
+        # unshuffled image path file
+        img_list = []
+        for i in keys_dict.keys():
+            image_path = keys_dict[i]
+            img_list.append(image_path)
+        
+        return img_list
+
+        # shuffled image path files
         for i in keys_dict_shuffled.keys():
             image_path = keys_dict_shuffled[i]
-            return image_path
+        
 

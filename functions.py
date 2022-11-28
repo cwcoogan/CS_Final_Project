@@ -182,16 +182,24 @@ def keep_score():
     # cant build this fully until the click function is built.
 
 
-def load_puzzle(path=GeneratePuzzle.get_mario()):
-    t8 = turtle.Turtle()
-    t8.penup()
-    t8.goto(-286.5, 191)
-    t8.pendown()
-    print(path)
-    path = "slider_puzzle_project_fall2021_assets-2022/" + path
-    screen.addshape(path)
-    t8.shape(path)
-
+def load_puzzle(lst=GeneratePuzzle.get_mario()):
+    x = -286.5
+    y = 191
+    for path in lst:
+        t8 = turtle.Turtle()
+        t8.penup()
+        t8.goto(x, y)
+        t8.pendown()
+        print(path)
+        path = "slider_puzzle_project_fall2021_assets-2022/" + path
+        screen.addshape(path)
+        t8.shape(path)
+        #2nd img
+        if x <= 50:
+            x = x + 112.5
+        else:
+            x = -286.5
+            y = y - 98
 
     
     
