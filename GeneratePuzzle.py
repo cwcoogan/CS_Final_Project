@@ -71,7 +71,10 @@ class GeneratePuzzle:
         return img_list
 
         # shuffled image path files
+        shuffled_img_list = []
         for i in keys_dict_shuffled.keys():
             image_path = keys_dict_shuffled[i]
+            shuffled_img_list.append(image_path)
         
-
+        # return shuffled_img_list
+        
