@@ -6,6 +6,7 @@ helper file storing classes and functions
 for the puzzle game.
 """
 
+from GeneratePuzzle import *
 import turtle
 import time
 import random
@@ -180,3 +181,10 @@ def keep_score():
     # on clicks.. 
     # cant build this fully until the click function is built.
 
+
+def load_puzzle(path=GeneratePuzzle.get_mario):
+    t8 = turtle.Turtle()
+    t8.penup()
+    t8.pendown()
+    screen.addshape()
+    

@@ -22,7 +22,7 @@ def main():
     reset_button()
     leaderboard_img()
     leaderboard()
-    GeneratePuzzle.get_fifteen()
+    GeneratePuzzle.get_mario()
     keep_score()
 
     screen.exitonclick()

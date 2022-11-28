@@ -24,19 +24,8 @@ class GeneratePuzzle:
         self.smiley = smiley
         self.yoshi = yoshi
     
-    def store_puzzle():
-        """
-        FUNCTION -- store_puzzle()
 
-        this function will store the images as a list
-        to make scrambling easier
-
-        data structure used is a list
-        """
-        puzzle = []
-        return puzzle    
-    
-    def get_fifteen():
+    def get_mario():
         """
         METHOD -- get_fifteen
 
@@ -44,7 +33,7 @@ class GeneratePuzzle:
         returns the key as the index and values as the images
         """
         puzzle = []
-        with open("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/fifteen.puz", "r") as f:
+        with open("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz", "r") as f:
             puzzle = f.readlines()
         combine = {}
         for each in puzzle:
@@ -52,26 +41,23 @@ class GeneratePuzzle:
             combine[puzzle[0]] = puzzle[1]
         # print(combine)
 
+        # storing thumbnail in a variable
         thumbnail = combine['thumbnail']
 
+        # un-shuffled keys and dictionary
         keys_dict = {}
         for i in combine.keys():
             if i.isdigit():
                 keys_dict[i] = combine[i]
         print(keys_dict)
-        
-    def get_luigi():
-        pass
 
-    def get_malformed():
-        pass
 
-    def get_mario():
-        pass
+        # shuffled keys and dictionary
+        keys = list(keys_dict.keys())
+        random.shuffle(keys)
 
-    def get_smiley():
-        pass
+        keys_dict_shuffled = {}
+        for key in keys:
+            keys_dict_shuffled.update({key: keys_dict[key]})
+        print(keys_dict_shuffled)
 
-    def get_yoshi():
-        pass
-    
