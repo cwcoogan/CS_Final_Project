@@ -122,7 +122,7 @@ def load_button():
     t3.goto(150, -250)
     t3.pendown()
     t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
-
+    
 def reset_button():
     t4 = turtle.Turtle()
     t4.penup()
@@ -130,7 +130,6 @@ def reset_button():
     t4.goto(50, -250)
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-
 
     
 # run this through a loop based on what puzzle is loaded
@@ -187,7 +186,7 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
     x = -286.5
     y = 191
     count = 0
-    img_list, number = lst
+    img_list, number, shuffle_list = lst
     sq_rt = floor(sqrt(number))
     for path in img_list:
         t8 = turtle.Turtle()
@@ -199,7 +198,6 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
         screen.addshape(path)
         t8.shape(path)
         count += 1
-        #2nd img
         if x <= 50 and count < sq_rt:
             x = x + 112.5
         else:

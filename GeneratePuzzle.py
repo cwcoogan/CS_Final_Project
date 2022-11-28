@@ -2,13 +2,6 @@ import turtle
 from functions import *
 import random
 
-
-"""
-NOT DONE *** Need to traverse every puzzle and store each imgs # of imgs as 
-the key and the .gif as the value
-"""
-
-
 class GeneratePuzzle:
     """
     class GeneratePuzzle
@@ -25,7 +18,6 @@ class GeneratePuzzle:
         self.smiley = smiley
         self.yoshi = yoshi
     
-
     def get_mario():
         """
         METHOD -- get_fifteen
@@ -41,12 +33,12 @@ class GeneratePuzzle:
             puzzle = each.strip().split(": ")
             combine[puzzle[0]] = puzzle[1]
         
-
         # storing thumbnail in a variable
         thumbnail = combine['thumbnail']
+
+        # storing the number of the file
         number = int(combine['number'])
         
-
         # un-shuffled keys and dictionary
         keys_dict = {}
         for i in combine.keys():
@@ -70,13 +62,11 @@ class GeneratePuzzle:
             image_path = keys_dict[i]
             img_list.append(image_path)
         
-        return img_list, number
-
         # shuffled image path files
         shuffled_img_list = []
         for i in keys_dict_shuffled.keys():
             image_path = keys_dict_shuffled[i]
             shuffled_img_list.append(image_path)
         
-        # return shuffled_img_list
-        
+        # return 
+        return img_list, number, shuffled_img_list
