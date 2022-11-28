@@ -14,8 +14,8 @@ import random
 screen = turtle.Screen()
 
 def main():
-    splash_screen()
-    user_input()
+    # splash_screen()
+    # user_input()
     store_rectangles()
     quit_button()
     load_button()

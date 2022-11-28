@@ -46,10 +46,20 @@ class GeneratePuzzle:
         puzzle = []
         with open("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/fifteen.puz", "r") as f:
             puzzle = f.readlines()
+        combine = {}
         for each in puzzle:
-            puzzle = each.split()
-            print(puzzle)
+            puzzle = each.strip().split(": ")
+            combine[puzzle[0]] = puzzle[1]
+        # print(combine)
 
+        thumbnail = combine['thumbnail']
+
+        keys_dict = {}
+        for i in combine.keys():
+            if i.isdigit():
+                keys_dict[i] = combine[i]
+        print(keys_dict)
+        
     def get_luigi():
         pass
 
