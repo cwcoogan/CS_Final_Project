@@ -137,10 +137,10 @@ def reset_button():
 def leaderboard_img():
     t5 = turtle.Turtle()
     t5.penup()
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
+    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
     t5.goto(250, 220)
     t5.pendown()
-    t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/luigi/luigi_thumbnail.gif")
+    t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
     
 
 # create a function to store the leaderboards
