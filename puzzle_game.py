@@ -26,8 +26,6 @@ def main():
     keep_score()
     load_puzzle()
     
-    
-
     screen.exitonclick()
 if __name__ == "__main__":
     main()

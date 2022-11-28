@@ -99,7 +99,6 @@ def reset_button():
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
 
-    
 # run this through a loop based on what puzzle is loaded
 # so it will change the img with a conditional if mario or luigi...etc is chosen
 def leaderboard_img():
@@ -154,9 +153,9 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
     x = -286.5
     y = 191
     count = 0
-    img_list, number, shuffle_list = lst
+    img_list, number, shuffle_list = lst 
     sq_rt = floor(sqrt(number))
-    for path in img_list:
+    for path in shuffle_list: # if I change this to img_list it will be the good puzzle
         t8 = turtle.Turtle()
         t8.penup()
         t8.goto(x, y)
@@ -173,6 +172,3 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
             y = y - 98
             count = 0
 
-
-
-    
