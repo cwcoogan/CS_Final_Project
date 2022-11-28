@@ -182,9 +182,16 @@ def keep_score():
     # cant build this fully until the click function is built.
 
 
-def load_puzzle(path=GeneratePuzzle.get_mario):
+def load_puzzle(path=GeneratePuzzle.get_mario()):
     t8 = turtle.Turtle()
     t8.penup()
+    t8.goto(-286.5, 191)
     t8.pendown()
-    screen.addshape()
+    print(path)
+    path = "slider_puzzle_project_fall2021_assets-2022/" + path
+    screen.addshape(path)
+    t8.shape(path)
+
+
+    
     

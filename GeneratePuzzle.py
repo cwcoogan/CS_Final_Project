@@ -2,6 +2,7 @@ import turtle
 from functions import *
 import random
 
+
 """
 NOT DONE *** Need to traverse every puzzle and store each imgs # of imgs as 
 the key and the .gif as the value
@@ -49,7 +50,7 @@ class GeneratePuzzle:
         for i in combine.keys():
             if i.isdigit():
                 keys_dict[i] = combine[i]
-        print(keys_dict)
+        # print(keys_dict)
 
 
         # shuffled keys and dictionary
@@ -60,4 +61,9 @@ class GeneratePuzzle:
         for key in keys:
             keys_dict_shuffled.update({key: keys_dict[key]})
         print(keys_dict_shuffled)
+
+        # image path files
+        for i in keys_dict_shuffled.keys():
+            image_path = keys_dict_shuffled[i]
+            return image_path
 
