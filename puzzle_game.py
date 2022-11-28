@@ -25,6 +25,8 @@ def main():
     GeneratePuzzle.get_mario()
     keep_score()
     load_puzzle()
+    
+    
 
     screen.exitonclick()
 if __name__ == "__main__":

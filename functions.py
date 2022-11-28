@@ -6,6 +6,7 @@ helper file storing classes and functions
 for the puzzle game.
 """
 
+from RectangleDimensions import *
 from math import *
 from GeneratePuzzle import *
 import turtle
@@ -14,7 +15,6 @@ import random
 
 screen = turtle.Screen()
 screen.setup(800, 730)
-
 
 def splash_screen():
     """
@@ -45,42 +45,6 @@ def user_input():
     while num_moves < 5 or num_moves > 200:
         num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))   
     
-    
-class RectangleDimensions:
-    """
-    Class - RectangleDimensions
-
-    this class takes the length, width, coordinates and color
-    to create a rectangle. This will be used to configure the 
-    gameboard.
-    """
-    def __init__(self, length, width, x_coord, y_coord, color):
-        self.length = length
-        self.width = width
-        self.x_coord = x_coord
-        self.y_coord = y_coord
-        self.color = color
-
-    def go_to(self):
-        turtle.penup()
-        turtle.goto(self.x_coord, self.y_coord)
-        turtle.pendown()
-        turtle.color(self.color)
-        turtle.pensize(4)
-        turtle.speed("fastest")
-
-    def draw(self):
-        turtle.forward(self.length)
-        turtle.left(90)
-
-        turtle.forward(self.width)
-        turtle.left(90)
-        
-        turtle.forward(self.length)
-        turtle.left(90)
-
-        turtle.forward(self.width)
-        turtle.left(90)
 
 def store_rectangles():
     """
@@ -115,6 +79,9 @@ def quit_button():
 
     # add the utility of this button with clicks
 
+def select_puzzle(x, y):
+    selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfamily.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
+    
 def load_button():
     t3 = turtle.Turtle()
     t3.penup()
@@ -122,7 +89,8 @@ def load_button():
     t3.goto(150, -250)
     t3.pendown()
     t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
-    
+    t3.onclick(select_puzzle)
+
 def reset_button():
     t4 = turtle.Turtle()
     t4.penup()
@@ -205,5 +173,6 @@ def load_puzzle(lst=GeneratePuzzle.get_mario()):
             y = y - 98
             count = 0
 
-    
+
+
     
