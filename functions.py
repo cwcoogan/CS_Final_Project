@@ -68,7 +68,13 @@ def store_rectangles():
     rectangle3.go_to()
     rectangle3.draw()
 
-
+def quit_img(x, y):
+    t9 = turtle.Turtle()
+    img = screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
+    t9.shape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
+    time.sleep(3)
+    screen.bye()
+    
 def quit_button():
     t2 = turtle.Turtle()
     t2.penup()
@@ -76,11 +82,10 @@ def quit_button():
     t2.goto(250, -250)
     t2.pendown()
     t2.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
-
-    # add the utility of this button with clicks
+    t2.onclick(quit_img)
 
 def select_puzzle(x, y):
-    selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfamily.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
+    selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
     path = "slider_puzzle_project_fall2021_assets-2022/" + selection
     load_puzzle(path)
 
@@ -110,12 +115,7 @@ def leaderboard_img():
     t5.goto(250, 220)
     t5.pendown()
     t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
-    
 
-# create a function to store the leaderboards
-# store in a dict
-# Key = name 
-# Value = score
 def leaderboard():
     t6 = turtle.Turtle()
     t6.penup()
@@ -124,10 +124,6 @@ def leaderboard():
     t6.color("blue")
     t6.write("Leaders: ", font=("Ariel", 15, "normal"))
     t6.hideturtle()
-    leader = {}
-
-    
-    # need to store leaderboard in a data structure (dictionary)
 
 def keep_score():
     """
@@ -174,4 +170,4 @@ def load_puzzle(p):
             x = -286.5
             y = y - 98
             count = 0
-
+    

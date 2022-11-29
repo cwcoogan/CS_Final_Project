@@ -11,7 +11,8 @@ import turtle
 import random
 
 # initialize turtle
-screen = turtle.Screen()
+# screen = turtle.Screen()
+# screen.setup(800,730)
 
 def main():
     #splash_screen()
