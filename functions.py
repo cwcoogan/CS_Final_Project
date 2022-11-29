@@ -5,6 +5,7 @@ CS 5001
 functions.py
 """
 
+from Tile import *
 from draw_rectangle import *
 from RectangleDimensions import *
 from math import *
@@ -12,10 +13,12 @@ from generate_puzzle import *
 import turtle
 import time
 import random
-
+from Puzzle import Puzzle
 
 screen = turtle.Screen()
 screen.setup(800, 730)
+
+puzzle = Puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
 
 def splash_screen():
     """
@@ -71,38 +74,38 @@ def quit_button():
     t2.onclick(quit_img)
 
 def select_puzzle(x, y):
+    global puzzle
     selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
     path = "slider_puzzle_project_fall2021_assets-2022/" + selection
-    load_puzzle(path)
+    
+    for tile in puzzle.tiles:
+        tile.t.hideturtle()
+    
+    puzzle.get_thumbnail().t.hideturtle()
+
+    puzzle = Puzzle(path)
+
+    load_puzzle(puzzle.get_path())
 
 def load_button():
-    t3 = turtle.Turtle()
-    t3.speed("fastest")
-    t3.penup()
-    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
-    t3.goto(150, -250)
-    t3.pendown()
-    t3.shape("slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
-    t3.onclick(select_puzzle)
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif"
+    load = Tile(150, -250, path, screen)
+    load.display_img()
+    load.t.onclick(select_puzzle)
     
 def reset_button():
-    t4 = turtle.Turtle()
-    t4.speed("fastest")
-    t4.penup()
-    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-    t4.goto(50, -250)
-    t4.pendown()
-    t4.shape("slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-    # t4.onclick(p) # needs to make this work
-    
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif"
+    reset = Tile(50, -250, path, screen)
+    reset.display_img()
+    reset.t.onclick(reset_puzzle) 
+
+def reset_puzzle(x, y):
+    load_puzzle(puzzle.get_path(),scrambled=False)
+
 def leaderboard_img(thumbnail):
-    t5 = turtle.Turtle()
-    t5.speed("fastest")
-    t5.penup()
-    screen.addshape(thumbnail)
-    t5.goto(250, 220)
-    t5.pendown()
-    t5.shape(thumbnail)
+    thumb = Tile(250, 220, thumbnail, screen)
+    thumb.display_img()
+    puzzle.set_thumbnail(thumb)
     
 def leaderboard():
     t6 = turtle.Turtle()
@@ -137,62 +140,40 @@ def keep_score():
     # on clicks.. 
     # cant build this fully until the click function is built.
 
-
-def load_puzzle(p):
+    
+def load_puzzle(p=puzzle.get_path(), scrambled=True):
     lst = get_puzzle(p)
+    
     x = -286.5
     y = 191
-    count = 0
-    img_list, number, shuffle_list, thumbnail = lst 
+    
+    unshuffled_list, number, shuffle_list, thumbnail = lst 
+
     thumbnail = "slider_puzzle_project_fall2021_assets-2022/" + thumbnail
     leaderboard_img(thumbnail)
-    sq_rt = floor(sqrt(number))
-    for path in shuffle_list: # if I change this to img_list it will be the good puzzle
-        t8 = turtle.Turtle()
-        t8.speed("fastest")
-        t8.penup()
-        t8.goto(x, y)
-        t8.pendown()
+    
+    placed_tiles = 0
+    tiles_in_line = floor(sqrt(number))
+
+    if scrambled:
+        images = shuffle_list
+    else:
+        images = unshuffled_list
+
+    for path in images:
+        
         path = "slider_puzzle_project_fall2021_assets-2022/" + path
-        screen.addshape(path)
-        t8.shape(path)
-        count += 1
-        if x <= 50 and count < sq_rt:
+        t = Tile(x, y, path, screen)
+        t.set_puzzle(path)
+        t.display_img()
+        puzzle.tiles.append(t)
+
+        placed_tiles += 1
+        if x <= 50 and placed_tiles < tiles_in_line:
             x = x + 112.5
+        
         else:
             x = -286.5
             y = y - 98
-            count = 0 
-
-
-# def click_change():
-#     t99 = turtle.Turtle()
-#     t99.onclick(reset_button)
-#     if t99.onclick(load_button) == reset_button():
-#         load_good_puzzle("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz")
-
-# def load_good_puzzle(p):
-#     lst = get_puzzle(p)
-#     x = -286.5
-#     y = 191
-#     count = 0
-#     img_list, number, shuffle_list, thumbnail = lst 
-#     thumbnail = "slider_puzzle_project_fall2021_assets-2022/" + thumbnail
-#     leaderboard_img(thumbnail)
-#     sq_rt = floor(sqrt(number))
-#     for path in img_list: # if I change this to img_list it will be the good puzzle
-#         t8 = turtle.Turtle()
-#         t8.speed("fastest")
-#         t8.penup()
-#         t8.goto(x, y)
-#         t8.pendown()
-#         path = "slider_puzzle_project_fall2021_assets-2022/" + path
-#         screen.addshape(path)
-#         t8.shape(path)
-#         count += 1
-#         if x <= 50 and count < sq_rt:
-#             x = x + 112.5
-#         else:
-#             x = -286.5
-#             y = y - 98
-#             count = 0 
+            placed_tiles = 0 
+    print(puzzle.tiles)
