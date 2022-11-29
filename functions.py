@@ -25,6 +25,7 @@ def splash_screen():
     """
     turtle.hideturtle()
     t1 = turtle.Turtle()
+    t1.speed("fastest")
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
     t1.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
     t = 3
@@ -70,6 +71,7 @@ def store_rectangles():
 
 def quit_img(x, y):
     t9 = turtle.Turtle()
+    t9.speed("fastest")
     img = screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
     t9.shape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
     time.sleep(3)
@@ -77,6 +79,7 @@ def quit_img(x, y):
     
 def quit_button():
     t2 = turtle.Turtle()
+    t2.speed("fastest")
     t2.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
     t2.goto(250, -250)
@@ -91,6 +94,7 @@ def select_puzzle(x, y):
 
 def load_button():
     t3 = turtle.Turtle()
+    t3.speed("fastest")
     t3.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
     t3.goto(150, -250)
@@ -100,6 +104,7 @@ def load_button():
 
 def reset_button():
     t4 = turtle.Turtle()
+    t4.speed("fastest")
     t4.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
     t4.goto(50, -250)
@@ -110,6 +115,7 @@ def reset_button():
 # so it will change the img with a conditional if mario or luigi...etc is chosen
 def leaderboard_img():
     t5 = turtle.Turtle()
+    t5.speed("fastest")
     t5.penup()
     screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
     t5.goto(250, 220)
@@ -118,6 +124,7 @@ def leaderboard_img():
 
 def leaderboard():
     t6 = turtle.Turtle()
+    t6.speed("fastest")
     t6.penup()
     t6.goto(130, 215)
     t6.pendown()
@@ -136,6 +143,7 @@ def keep_score():
     """
     count = 0
     t7 = turtle.Turtle()
+    t7.speed("fastest")
     t7.penup()
     t7.goto(-230, -260)
     t7.pendown()
@@ -156,6 +164,7 @@ def load_puzzle(p):
     sq_rt = floor(sqrt(number))
     for path in shuffle_list: # if I change this to img_list it will be the good puzzle
         t8 = turtle.Turtle()
+        t8.speed("fastest")
         t8.penup()
         t8.goto(x, y)
         t8.pendown()
