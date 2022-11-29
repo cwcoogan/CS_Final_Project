@@ -19,8 +19,9 @@ def main():
     reset_button() 
     leaderboard()
     keep_score()
-    load_puzzle("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz")
-        
+    load_puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
+    click_change()
+    
     
     screen.mainloop()
 if __name__ == "__main__":

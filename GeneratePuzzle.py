@@ -50,6 +50,6 @@ def get_puzzle(file_path):
     for i in keys_dict_shuffled.keys():
         image_path = keys_dict_shuffled[i]
         shuffled_img_list.append(image_path)
-    
+
     # return 
     return img_list, number, shuffled_img_list, thumbnail

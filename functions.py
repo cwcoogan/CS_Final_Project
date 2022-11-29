@@ -13,6 +13,7 @@ import turtle
 import time
 import random
 
+
 screen = turtle.Screen()
 screen.setup(800, 730)
 
@@ -110,7 +111,7 @@ def reset_button():
     t4.goto(50, -250)
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-    # t4.onclick(load_good_puzzle)    
+    # t4.onclick(p) # needs to make this work
     
 def leaderboard_img(thumbnail):
     t5 = turtle.Turtle()
@@ -121,8 +122,6 @@ def leaderboard_img(thumbnail):
     t5.pendown()
     t5.shape(thumbnail)
     
-    
-
 def leaderboard():
     t6 = turtle.Turtle()
     t6.speed("fastest")
@@ -180,18 +179,26 @@ def load_puzzle(p):
         else:
             x = -286.5
             y = y - 98
-            count = 0        
+            count = 0 
 
-# def load_good_puzzle(p, x, y):
+
+# def click_change():
+#     t99 = turtle.Turtle()
+#     t99.onclick(reset_button)
+#     if t99.onclick(load_button) == reset_button():
+#         load_good_puzzle("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz")
+
+# def load_good_puzzle(p):
 #     lst = get_puzzle(p)
 #     x = -286.5
 #     y = 191
 #     count = 0
 #     img_list, number, shuffle_list, thumbnail = lst 
+#     thumbnail = "slider_puzzle_project_fall2021_assets-2022/" + thumbnail
+#     leaderboard_img(thumbnail)
 #     sq_rt = floor(sqrt(number))
 #     for path in img_list: # if I change this to img_list it will be the good puzzle
 #         t8 = turtle.Turtle()
-#         # t8.onclick(load_puzzle)
 #         t8.speed("fastest")
 #         t8.penup()
 #         t8.goto(x, y)
@@ -205,4 +212,4 @@ def load_puzzle(p):
 #         else:
 #             x = -286.5
 #             y = y - 98
-#             count = 0    
+#             count = 0 
