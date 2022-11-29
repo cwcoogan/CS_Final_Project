@@ -29,14 +29,11 @@ def splash_screen():
     Returns - None. Sets splash screen image 
               and timer
     """
-    turtle.hideturtle()
-    t1 = turtle.Turtle()
-    t1.speed("fastest")
-    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
-    t1.shape("slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
-    t = 3
-    time.sleep(t)
-    t1.hideturtle()
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif"
+    splash = Tile(0, 0, path, screen)
+    splash.display_img()
+    time.sleep(3)
+    splash.t.hideturtle()
     
 def user_input():
     """
@@ -56,22 +53,17 @@ def user_input():
     
 
 def quit_img(x, y):
-    t9 = turtle.Turtle()
-    t9.speed("fastest")
-    img = screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
-    t9.shape("slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif")
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/quitmsg.gif"
+    get_quit_img = Tile(0, 0, path, screen)
+    get_quit_img.display_img()    
     time.sleep(3)
     screen.bye()
     
 def quit_button():
-    t2 = turtle.Turtle()
-    t2.speed("fastest")
-    t2.penup()
-    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
-    t2.goto(250, -250)
-    t2.pendown()
-    t2.shape("slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
-    t2.onclick(quit_img)
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif"
+    exit = Tile(250, -250, path, screen)
+    exit.display_img()
+    exit.t.onclick(quit_img)
 
 def select_puzzle(x, y):
     global puzzle
@@ -176,4 +168,4 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
             x = -286.5
             y = y - 98
             placed_tiles = 0 
-    print(puzzle.tiles)
+    # print(puzzle.tiles)
