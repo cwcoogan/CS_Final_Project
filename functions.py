@@ -2,13 +2,13 @@
 Chase Coogan
 Fall 2022
 CS 5001
-helper file storing classes and functions
-for the puzzle game.
+functions.py
 """
 
+from draw_rectangle import *
 from RectangleDimensions import *
 from math import *
-from GeneratePuzzle import *
+from generate_puzzle import *
 import turtle
 import time
 import random
@@ -21,14 +21,16 @@ def splash_screen():
     """
     Function splash_screen
 
-    initializes the splash screen and sets it to appear 
-    for 3 total seconds and then it goes away
+    Parameters - None
+    
+    Returns - None. Sets splash screen image 
+              and timer
     """
     turtle.hideturtle()
     t1 = turtle.Turtle()
     t1.speed("fastest")
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
-    t1.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
+    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
+    t1.shape("slider_puzzle_project_fall2021_assets-2022/Resources/splash_screen.gif")
     t = 3
     time.sleep(t)
     t1.hideturtle()
@@ -37,8 +39,10 @@ def user_input():
     """
     FUNCTION -- user_input()
 
-    this function gets the users name and the total number
-    of chances they want between 5-200. 
+    Patameters - None
+
+    Returns - users name and the total # of attempts
+              between 5 - 200 to play the game
     """
     name = turtle.textinput("CS5001 Puzzle Slide", "Your Name: ")
     num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
@@ -47,28 +51,6 @@ def user_input():
     while num_moves < 5 or num_moves > 200:
         num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))   
     
-
-def store_rectangles():
-    """
-    Function -- store_rectangles()
-
-    calling each rectangle object here to
-    free up the main
-    """
-    # leaderboard
-    rectangle1 = RectangleDimensions(175, 392, 120, -150, "blue")
-    rectangle1.go_to()
-    rectangle1.draw()
-
-    # tile square
-    rectangle2 = RectangleDimensions(450, 392, -350, -150, "black")
-    rectangle2.go_to()
-    rectangle2.draw()
-
-    # reset/load box
-    rectangle3 = RectangleDimensions(650, 100, -350,-300, "black")
-    rectangle3.go_to()
-    rectangle3.draw()
 
 def quit_img(x, y):
     t9 = turtle.Turtle()
@@ -82,10 +64,10 @@ def quit_button():
     t2 = turtle.Turtle()
     t2.speed("fastest")
     t2.penup()
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
+    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
     t2.goto(250, -250)
     t2.pendown()
-    t2.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
+    t2.shape("slider_puzzle_project_fall2021_assets-2022/Resources/quitbutton.gif")
     t2.onclick(quit_img)
 
 def select_puzzle(x, y):
@@ -97,20 +79,20 @@ def load_button():
     t3 = turtle.Turtle()
     t3.speed("fastest")
     t3.penup()
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
+    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
     t3.goto(150, -250)
     t3.pendown()
-    t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
+    t3.shape("slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
     t3.onclick(select_puzzle)
     
 def reset_button():
     t4 = turtle.Turtle()
     t4.speed("fastest")
     t4.penup()
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
+    screen.addshape("slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
     t4.goto(50, -250)
     t4.pendown()
-    t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
+    t4.shape("slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
     # t4.onclick(p) # needs to make this work
     
 def leaderboard_img(thumbnail):
@@ -136,10 +118,11 @@ def keep_score():
     """
     FUNCTION -- keep_score()
 
-    this function keeps score and displays the 
-    number of of attempts the player has performed.
-    it will break if the user wins, or if the user 
-    reaches their attempt limit
+    Parameters - None.
+
+    Returns - the players score. Displays either
+    "win" or "lose" depending on if player wins
+    or loses.
     """
     count = 0
     t7 = turtle.Turtle()
