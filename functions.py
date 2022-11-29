@@ -101,7 +101,7 @@ def load_button():
     t3.pendown()
     t3.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif")
     t3.onclick(select_puzzle)
-
+    
 def reset_button():
     t4 = turtle.Turtle()
     t4.speed("fastest")
@@ -110,7 +110,7 @@ def reset_button():
     t4.goto(50, -250)
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-    #t4.onclick(load_good_puzzle)
+    #t4.onclick(load_good_puzzle)    
     
 # run this through a loop based on what puzzle is loaded
 # so it will change the img with a conditional if mario or luigi...etc is chosen
