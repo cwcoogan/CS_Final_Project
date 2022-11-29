@@ -11,8 +11,8 @@ import turtle
 import random
 
 def main():
-    splash_screen()
-    user_input()
+    #splash_screen()
+    #user_input()
     store_rectangles()
     quit_button()
     load_button()
@@ -20,6 +20,7 @@ def main():
     leaderboard()
     keep_score()
     load_puzzle("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/mario.puz")
+        
     
     screen.mainloop()
 if __name__ == "__main__":

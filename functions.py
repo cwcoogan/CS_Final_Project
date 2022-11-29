@@ -110,10 +110,8 @@ def reset_button():
     t4.goto(50, -250)
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-    #t4.onclick(load_good_puzzle)    
+    # t4.onclick(load_good_puzzle)    
     
-# run this through a loop based on what puzzle is loaded
-# so it will change the img with a conditional if mario or luigi...etc is chosen
 def leaderboard_img(thumbnail):
     t5 = turtle.Turtle()
     t5.speed("fastest")
@@ -122,6 +120,8 @@ def leaderboard_img(thumbnail):
     t5.goto(250, 220)
     t5.pendown()
     t5.shape(thumbnail)
+    
+    
 
 def leaderboard():
     t6 = turtle.Turtle()
@@ -146,10 +146,10 @@ def keep_score():
     t7 = turtle.Turtle()
     t7.speed("fastest")
     t7.penup()
-    t7.goto(-230, -260)
+    t7.goto(-320, -260)
     t7.pendown()
     t7.color('blue')
-    t7.write('Player Attempts: 0', font=("Ariel", 15, "normal"))
+    t7.write('Player Attempts: 0', font=("Ariel", 20, "normal"))
     t7.hideturtle()
     # need to iterate through count and display the total number based
     # on clicks.. 
@@ -180,14 +180,14 @@ def load_puzzle(p):
         else:
             x = -286.5
             y = y - 98
-            count = 0
-            
+            count = 0        
+
 # def load_good_puzzle(p, x, y):
 #     lst = get_puzzle(p)
 #     x = -286.5
 #     y = 191
 #     count = 0
-#     img_list, number, shuffle_list = lst 
+#     img_list, number, shuffle_list, thumbnail = lst 
 #     sq_rt = floor(sqrt(number))
 #     for path in img_list: # if I change this to img_list it will be the good puzzle
 #         t8 = turtle.Turtle()
