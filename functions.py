@@ -110,17 +110,18 @@ def reset_button():
     t4.goto(50, -250)
     t4.pendown()
     t4.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Resources/resetbutton.gif")
-
+    #t4.onclick(load_good_puzzle)
+    
 # run this through a loop based on what puzzle is loaded
 # so it will change the img with a conditional if mario or luigi...etc is chosen
-def leaderboard_img():
+def leaderboard_img(thumbnail):
     t5 = turtle.Turtle()
     t5.speed("fastest")
     t5.penup()
-    screen.addshape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
+    screen.addshape(thumbnail)
     t5.goto(250, 220)
     t5.pendown()
-    t5.shape("/Users/chasecoogan/Documents/CS_Final_Project/slider_puzzle_project_fall2021_assets-2022/Images/mario/mario_thumbnail.gif")
+    t5.shape(thumbnail)
 
 def leaderboard():
     t6 = turtle.Turtle()
@@ -160,7 +161,9 @@ def load_puzzle(p):
     x = -286.5
     y = 191
     count = 0
-    img_list, number, shuffle_list = lst 
+    img_list, number, shuffle_list, thumbnail = lst 
+    thumbnail = "slider_puzzle_project_fall2021_assets-2022/" + thumbnail
+    leaderboard_img(thumbnail)
     sq_rt = floor(sqrt(number))
     for path in shuffle_list: # if I change this to img_list it will be the good puzzle
         t8 = turtle.Turtle()
@@ -168,7 +171,6 @@ def load_puzzle(p):
         t8.penup()
         t8.goto(x, y)
         t8.pendown()
-        print(path)
         path = "slider_puzzle_project_fall2021_assets-2022/" + path
         screen.addshape(path)
         t8.shape(path)
@@ -179,4 +181,28 @@ def load_puzzle(p):
             x = -286.5
             y = y - 98
             count = 0
-    
+            
+# def load_good_puzzle(p, x, y):
+#     lst = get_puzzle(p)
+#     x = -286.5
+#     y = 191
+#     count = 0
+#     img_list, number, shuffle_list = lst 
+#     sq_rt = floor(sqrt(number))
+#     for path in img_list: # if I change this to img_list it will be the good puzzle
+#         t8 = turtle.Turtle()
+#         # t8.onclick(load_puzzle)
+#         t8.speed("fastest")
+#         t8.penup()
+#         t8.goto(x, y)
+#         t8.pendown()
+#         path = "slider_puzzle_project_fall2021_assets-2022/" + path
+#         screen.addshape(path)
+#         t8.shape(path)
+#         count += 1
+#         if x <= 50 and count < sq_rt:
+#             x = x + 112.5
+#         else:
+#             x = -286.5
+#             y = y - 98
+#             count = 0    
