@@ -120,18 +120,10 @@ def keep_score():
     or loses.
     """
     count = 0
-    t7 = turtle.Turtle()
-    t7.speed("fastest")
-    t7.penup()
-    t7.goto(-320, -260)
-    t7.pendown()
-    t7.color('blue')
-    t7.write('Player Attempts: 0', font=("Ariel", 20, "normal"))
-    t7.hideturtle()
-    # need to iterate through count and display the total number based
-    # on clicks.. 
-    # cant build this fully until the click function is built.
-
+    score = Tile(-320, -260, img_file=None, screen=screen)
+    score.t.color('blue')
+    score.display_text('Player Moves: 0', 20)
+    score.t.hideturtle()
     
 def load_puzzle(p=puzzle.get_path(), scrambled=True):
     lst = get_puzzle(p)

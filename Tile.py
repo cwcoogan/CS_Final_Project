@@ -9,7 +9,8 @@ class Tile:
         self.img_file = img_file
         self.screen = screen
         self.puzzle = ""
-        turtle.register_shape(img_file)
+        if img_file:
+            turtle.register_shape(img_file)
 
     def display_img(self):
         self.t.up()
@@ -22,3 +23,11 @@ class Tile:
         
     def get_puzzle(self, puz):
         return self.puzzle
+
+    def display_text(self, text, txt_size):
+        self.t.up()
+        self.t.goto(self.x, self.y)
+        self.t.down()
+        self.t.write(text, font=("Ariel", txt_size, "normal"))
+    
+        
