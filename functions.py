@@ -100,14 +100,10 @@ def leaderboard_img(thumbnail):
     puzzle.set_thumbnail(thumb)
     
 def leaderboard():
-    t6 = turtle.Turtle()
-    t6.speed("fastest")
-    t6.penup()
-    t6.goto(130, 215)
-    t6.pendown()
-    t6.color("blue")
-    t6.write("Leaders: ", font=("Ariel", 15, "normal"))
-    t6.hideturtle()
+    leader = Tile(130, 215, img_file=None, screen=screen)
+    leader.t.color('blue')
+    leader.display_text("Leaders: ", 15)
+    leader.t.hideturtle()
 
 def keep_score():
     """
