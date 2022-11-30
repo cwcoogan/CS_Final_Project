@@ -46,7 +46,7 @@ def user_input():
     """
     name = turtle.textinput("CS5001 Puzzle Slide", "Your Name: ")
     num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))
-
+    
     # checks to see if the number of chances is within the range of 5-200
     while num_moves < 5 or num_moves > 200:
         num_moves = int(turtle.numinput("CS5001 Puzzle Slide - Moves", "Enter the number of moves (chances) you want (5-200)?"))   
@@ -169,3 +169,7 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
             y = y - 98
             placed_tiles = 0 
     # print(puzzle.tiles)
+            
+
+# Final function needs to be able to handle onclick()
+# and move the actual tile pieces.
