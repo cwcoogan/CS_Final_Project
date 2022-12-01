@@ -40,16 +40,3 @@ class Tile:
         self.t.goto(self.x, self.y)
         self.t.down()
         self.t.write(text, font=("Ariel", txt_size, "normal"))
-
-    def swap_y(self, other):
-        self.y = other.y
-        z = self.x # storing temp
-        self.x = other.x
-        other.x = z # assign z 
-        return self.y, other.y
-
-    def swap_x(self, other):
-        z = self.x # temp value
-        self.x = other.x 
-        other.x = z # assign z    
-        return self.x, other.x 

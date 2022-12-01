@@ -44,19 +44,6 @@ def get_puzzle(file_path):
         keys_dict_shuffled.update({key: keys_dict[key]})
 
         
-    # ---- get the blank/gif img ---- #
-    # get_tile = list(keys_dict_shuffled.keys())
-    # get_tile.sort()
-    # blank_tile = []
-    # for i in get_tile:
-    #     blank_tile.append(int(i))
-    # blank_tile.sort()
-    # blank_tile = blank_tile[-1] # prints the int value
-    # blank_tile = keys_dict_shuffled[str(blank_tile)] # prints the blank img value
-    # print(blank_tile) # prints the str value of y
-    
-
-
     # ----  unshuffled image path file ---- #
     img_list = []
     for i in keys_dict.keys():

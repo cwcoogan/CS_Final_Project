@@ -73,10 +73,6 @@ def get_error_img():
     path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
     error_img = Tile(0, 0, path, screen=screen)
     error_img.display_img()
-        
-# def display_errror_img():
-#     path = path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
-#     display_error = Tile(0, 0, path, screen=screen)
     
 def select_puzzle(x, y):
     global puzzle
