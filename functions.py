@@ -164,7 +164,7 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
         puzzle.tiles.append([])
         for j in range(rows):
             path = "slider_puzzle_project_fall2021_assets-2022/" + images[count]
-            t = Tile(x, y, path, screen, (i, j))
+            t = Tile(x, y, path, screen, (i, j), count=count)
             puzzle.tiles[i].append(t)
             t.display_img()
             count += 1
@@ -196,12 +196,12 @@ def check_win():
     lst = []
     for row in puzzle.tiles:
         for tile in row:
-            lst.append(tile.img_file[-6:-4].strip("/"))
+            lst.append(tile.count)
     
-    lst.remove("nk")
+    # lst.remove("nk")
     print(lst)
 
-    if lst == sorted(lst, reverse=True):
+    if lst == sorted(lst):
         print("WINERRRRRRRR")
 
 

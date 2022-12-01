@@ -1,7 +1,7 @@
 import turtle
 
 class Tile:
-    def __init__(self, x, y, img_file, screen, location=(0, 0)) -> None:
+    def __init__(self, x, y, img_file, screen, location=(0, 0), count=-1) -> None:
         self.t = turtle.Turtle()
         self.t.speed("fastest")
         self.x = x
@@ -10,6 +10,7 @@ class Tile:
         self.img_file = img_file
         self.screen = screen
         self.puzzle = ""
+        self.count = count
 
         self.blank = False
 

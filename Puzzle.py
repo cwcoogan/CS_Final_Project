@@ -41,7 +41,9 @@ class Puzzle:
 
         a.location, b.location = b.location, a.location
 
-        data_a = self.tiles[ai][aj]
-        data_b = self.tiles[bi][bj]
+        # data_a = self.tiles[ai][aj]
+        # data_b = self.tiles[bi][bj]
 
-        data_a, data_b = data_b, data_a
+        self.tiles[ai][aj], self.tiles[bi][bj] = self.tiles[bi][bj], self.tiles[ai][aj]
+        
+        # data_a, data_b = data_b, 
