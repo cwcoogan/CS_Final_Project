@@ -21,6 +21,7 @@ def main():
     keep_score()
     load_puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
     
+
     screen.mainloop()
 if __name__ == "__main__":
     main()

@@ -68,17 +68,36 @@ def quit_button():
     exit.display_img()
     exit.t.onclick(quit_img)
 
+    
+def get_error_img():
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
+    error_img = Tile(0, 0, path, screen=screen)
+    error_img.display_img()
+        
+# def display_errror_img():
+#     path = path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
+#     display_error = Tile(0, 0, path, screen=screen)
+    
 def select_puzzle(x, y):
     global puzzle
     selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
     path = "slider_puzzle_project_fall2021_assets-2022/" + selection
     
+    # display error image if path not found
+    if selection.lower() != "mario.puz" and \
+    selection.lower() != "yoshi.puz" and \
+    selection.lower() != "fifteen.puz" and \
+    selection.lower() != "smiley.puz" and \
+    selection.lower() != "luigi.puz": 
+        get_error_img()
+
     puzzle.clear()
 
     puzzle = Puzzle(path)
 
     load_puzzle(puzzle.get_path())
 
+        
 def load_button():
     path = "slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif"
     load = Tile(150, -250, path, screen)
@@ -126,7 +145,6 @@ def keep_score():
 def load_puzzle(p=puzzle.get_path(), scrambled=True):
     lst = get_puzzle(p)
 
-    
     x = -286.5
     y = 191
     
@@ -135,16 +153,15 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
     thumbnail = "slider_puzzle_project_fall2021_assets-2022/" + thumbnail
     leaderboard_img(thumbnail)
     
-    placed_tiles = 0
-    tiles_in_line = floor(sqrt(number))
+    # placed_tiles = 0
+    # tiles_in_line = floor(sqrt(number))
 
     if scrambled:
         images = shuffle_list
     else:
         images = unshuffled_list
 
-    
-
+        
     rows = int(math.sqrt(number))
     count = 0 
     for i in range(rows):

@@ -28,7 +28,7 @@ class Tile:
         self.t.penup()
         self.t.goto(x, y)
         self.t.pendown()
-        
+
     def set_puzzle(self, puz):
         self.puzzle = puz
         
@@ -52,8 +52,4 @@ class Tile:
         z = self.x # temp value
         self.x = other.x 
         other.x = z # assign z    
-        return self.x, other.x
-    
-
-
-        
+        return self.x, other.x 

@@ -29,4 +29,3 @@ def store_rectangles():
     rectangle3 = RectangleDimensions(650, 100, -350,-300, "black")
     rectangle3.go_to()
     rectangle3.draw()
-
