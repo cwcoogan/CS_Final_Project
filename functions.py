@@ -5,6 +5,7 @@ CS 5001
 functions.py
 """
 
+from functools import partial
 from Tile import *
 from draw_rectangle import *
 from RectangleDimensions import *
@@ -14,6 +15,8 @@ import turtle
 import time
 import random
 from Puzzle import Puzzle
+from pprint import pprint
+import math
 
 screen = turtle.Screen()
 screen.setup(800, 730)
@@ -70,10 +73,7 @@ def select_puzzle(x, y):
     selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
     path = "slider_puzzle_project_fall2021_assets-2022/" + selection
     
-    for tile in puzzle.tiles:
-        tile.t.hideturtle()
-    
-    puzzle.get_thumbnail().t.hideturtle()
+    puzzle.clear()
 
     puzzle = Puzzle(path)
 
@@ -92,7 +92,9 @@ def reset_button():
     reset.t.onclick(reset_puzzle) 
 
 def reset_puzzle(x, y):
-    load_puzzle(puzzle.get_path(),scrambled=False)
+    global puzzle
+    puzzle = Puzzle(puzzle.get_path())
+    load_puzzle(puzzle.get_path(), scrambled=False)
 
 def leaderboard_img(thumbnail):
     thumb = Tile(250, 220, thumbnail, screen)
@@ -123,6 +125,7 @@ def keep_score():
     
 def load_puzzle(p=puzzle.get_path(), scrambled=True):
     lst = get_puzzle(p)
+
     
     x = -286.5
     y = 191
@@ -140,24 +143,57 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
     else:
         images = unshuffled_list
 
-    for path in images:
-        
-        path = "slider_puzzle_project_fall2021_assets-2022/" + path
-        t = Tile(x, y, path, screen)
-        t.set_puzzle(path)
-        t.display_img()
-        puzzle.tiles.append(t)
+    
 
-        placed_tiles += 1
-        if x <= 50 and placed_tiles < tiles_in_line:
+    rows = int(math.sqrt(number))
+    count = 0 
+    for i in range(rows):
+        puzzle.tiles.append([])
+        for j in range(rows):
+            path = "slider_puzzle_project_fall2021_assets-2022/" + images[count]
+            t = Tile(x, y, path, screen, (i, j))
+            puzzle.tiles[i].append(t)
+            t.display_img()
+            count += 1
+
             x = x + 112.5
         
-        else:
-            x = -286.5
-            y = y - 98
-            placed_tiles = 0 
-    # print(puzzle.tiles)
-            
+        x = -286.5
+        y -= 98
 
-# Final function needs to be able to handle onclick()
-# and move the actual tile pieces.
+
+    for row in puzzle.tiles:
+        for tile in row:
+            tile.t.onclick(partial(check_click, tile))
+
+def check_click(clicked_tile, x, y):
+    
+    blank_tile = get_blank_tile()
+    bx, by = blank_tile.location
+    blank_neighbors = [(bx + 1, by), (bx - 1, by), (bx, by + 1), (bx, by - 1)] 
+    
+    if clicked_tile.location in blank_neighbors:
+        puzzle.swap_tiles(clicked_tile, blank_tile)
+        check_win()
+    else:
+        print("SWAPNIL NO SWAPPING")
+
+# Neeely is broken here
+def check_win():
+    lst = []
+    for row in puzzle.tiles:
+        for tile in row:
+            lst.append(tile.img_file[-6:-4].strip("/"))
+    
+    lst.remove("nk")
+    print(lst)
+
+    if lst == sorted(lst, reverse=True):
+        print("WINERRRRRRRR")
+
+
+def get_blank_tile():
+    for row in puzzle.tiles:
+        for tile in row:
+            if tile.blank:
+                return tile
