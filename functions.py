@@ -180,7 +180,6 @@ def load_puzzle(p=puzzle.get_path(), scrambled=True):
             tile.t.onclick(partial(check_click, tile))
 
 def check_click(clicked_tile, x, y):
-    
     blank_tile = get_blank_tile()
     bx, by = blank_tile.location
     blank_neighbors = [(bx + 1, by), (bx - 1, by), (bx, by + 1), (bx, by - 1)] 
@@ -188,10 +187,13 @@ def check_click(clicked_tile, x, y):
     if clicked_tile.location in blank_neighbors:
         puzzle.swap_tiles(clicked_tile, blank_tile)
         check_win()
+    
+    
+
     else:
         print("SWAPNIL NO SWAPPING")
 
-# Neeely is broken here
+        
 def check_win():
     lst = []
     for row in puzzle.tiles:
@@ -201,9 +203,18 @@ def check_win():
     # lst.remove("nk")
     print(lst)
 
+    path = "slider_puzzle_project_fall2021_assets-2022/Resources/winner.gif"
+    path_2 = "slider_puzzle_project_fall2021_assets-2022/Resources/credits.gif"
+    winner = Tile(0,0, path, screen=screen)
+    winner2 = Tile(0,0, path_2, screen=screen)
     if lst == sorted(lst):
-        print("WINERRRRRRRR")
-
+        winner.display_img()
+        time.sleep(3)
+        winner.t.clear()
+        winner2.display_img()
+        time.sleep(2)
+        screen.bye()
+        
 
 def get_blank_tile():
     for row in puzzle.tiles:
