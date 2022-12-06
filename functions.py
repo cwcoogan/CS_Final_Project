@@ -200,16 +200,17 @@ def check_win():
         for tile in row:
             lst.append(tile.count)
     
-    # lst.remove("nk")
+    # # lst.remove("nk")
     print(lst)
 
+    # the winning logic is broken...
     path = "slider_puzzle_project_fall2021_assets-2022/Resources/winner.gif"
     path_2 = "slider_puzzle_project_fall2021_assets-2022/Resources/credits.gif"
     winner = Tile(0,0, path, screen=screen)
     winner2 = Tile(0,0, path_2, screen=screen)
     if lst == sorted(lst):
         winner.display_img()
-        time.sleep(3)
+        time.sleep(1)
         winner.t.clear()
         winner2.display_img()
         time.sleep(2)

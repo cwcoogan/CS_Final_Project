@@ -17,7 +17,7 @@ def main():
     quit_button()
     load_button()
     reset_button() 
-    leaderboard()
+    leaderboard() 
     keep_score()
     load_puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
     
