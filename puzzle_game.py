@@ -11,17 +11,19 @@ import turtle
 import random
 
 def main():
-    splash_screen()
-    user_input()
+    runner = PuzzleRunner()
+    runner.splash_screen()
+    runner.update_leaders()
+    runner.user_input()
     store_rectangles()
-    quit_button()
-    load_button()
-    reset_button() 
-    leaderboard() 
-    keep_score()
-    load_puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
-    
+    runner.quit_button()
+    runner.load_button()
+    runner.reset_button() 
+    runner.leaderboard() 
+    runner.keep_score()
+    runner.load_puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
 
-    screen.mainloop()
+
+    runner.screen.mainloop()
 if __name__ == "__main__":
     main()
