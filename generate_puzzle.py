@@ -1,6 +1,6 @@
-import turtle
-from functions import *
+from PuzzleRunner import *
 import random
+import math
 
 def get_puzzle(file_path):
     """
@@ -35,6 +35,9 @@ def get_puzzle(file_path):
     # ---- Storing number as a var ---- #
     number = int(combine['number'])
     
+    s = math.sqrt(number)
+    if not int(s + 0.5) ** 2 == number:
+        return
     
     # ---- un-shuffled keys and dictionary ---- #
     keys_dict = {}

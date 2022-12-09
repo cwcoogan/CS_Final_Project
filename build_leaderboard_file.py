@@ -1,8 +1,8 @@
 import pickle
 
 d = {
-    12: "Harry",
-    10: "Hary"
+    12: "Chase",
+    10: "Professor Bagley"
 }
 newFile = 'leaderboards.data' 
 with open(newFile, 'wb') as f:

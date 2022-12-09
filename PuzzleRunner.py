@@ -110,21 +110,20 @@ class PuzzleRunner:
         exit.t.onclick(self.quit_img)
 
     def select_puzzle(self, x, y):
-        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
+        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz\n")
         path = "slider_puzzle_project_fall2021_assets-2022/" + selection
-
+        
         self.puzzle.clear()
 
         self.puzzle = Puzzle(path)
         
         self.load_puzzle(self.puzzle.get_path())
-
+          
     def after_error(self):
-        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
+        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz")
         path = "slider_puzzle_project_fall2021_assets-2022/" + selection
         self.puzzle = Puzzle(path)
         self.load_puzzle(self.puzzle.get_path())
-        
            
     def load_button(self):
         path = "slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif"
@@ -157,8 +156,7 @@ class PuzzleRunner:
         
     def display_leaders(self):
         
-        print(self.leaderboard_name)
-        names = Tile(130, 175, img_file= None, screen=self.screen)
+        names = Tile(130, 150, img_file= None, screen=self.screen)
         for each in self.leaderboard_name:
             names.display_text(f'{each} : {self.leaderboard_name[each]}', 15)  
             names.y -= 20
@@ -236,9 +234,6 @@ class PuzzleRunner:
                 tile.t.onclick(partial(self.check_click, tile))
 
     def check_click(self, clicked_tile, x, y):
-        # should I check clicks here?  
-        count = 0
-
         blank_tile = self.get_blank_tile()
         bx, by = blank_tile.location
         blank_neighbors = [(bx + 1, by), (bx - 1, by), (bx, by + 1), (bx, by - 1)] 
@@ -261,15 +256,12 @@ class PuzzleRunner:
         time.sleep(2)
         turtle.bye()
         
-
     def check_win(self):
         lst = []
         for row in self.puzzle.tiles:
             for tile in row:
                 lst.append(tile.count)
 
-        print(lst)
-        print(sorted(lst))
         if lst == sorted(lst):
             return True
             
