@@ -8,7 +8,6 @@ functions.py
 import pickle
 from functools import partial
 from Tile import *
-from draw_rectangle import *
 from RectangleDimensions import *
 from math import *
 from generate_puzzle import *
@@ -24,8 +23,43 @@ class PuzzleRunner:
         self.screen = turtle.Screen()
         self.screen.setup(800, 730)
         self.puzzle = Puzzle("slider_puzzle_project_fall2021_assets-2022/mario.puz")
-        self.leaderboard_name = {}
         self.count = 0
+        
+    def begin_game(self):
+        self.splash_screen()
+        self.update_leaders()
+        self.user_input()
+        self.draw_rectangles()
+        self.quit_button()
+        self.load_button()
+        self.reset_button() 
+        self.leaderboard() 
+        self.keep_score()
+    
+    def reload(self):
+        self.load_puzzle(self.puzzle.get_path())
+    
+    def draw_rectangles(self):
+        """
+        Function -- store_rectangles()
+
+        calling each rectangle object here to
+        free up the main
+        """
+        # leaderboard
+        rectangle1 = RectangleDimensions(175, 392, 120, -150, "blue")
+        rectangle1.go_to()
+        rectangle1.draw()
+
+        # tile square
+        rectangle2 = RectangleDimensions(450, 392, -350, -150, "black")
+        rectangle2.go_to()
+        rectangle2.draw()
+
+        # reset/load box
+        rectangle3 = RectangleDimensions(650, 100, -350,-300, "black")
+        rectangle3.go_to()
+        rectangle3.draw()
 
     def splash_screen(self):
         """
@@ -74,29 +108,23 @@ class PuzzleRunner:
         exit = Tile(250, -250, path, self.screen)
         exit.display_img()
         exit.t.onclick(self.quit_img)
-        
-    def get_error_img(self):
-        path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
-        error_img = Tile(0, 0, path, screen=self.screen)
-        error_img.display_img()
-        
+
     def select_puzzle(self, x, y):
         selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
         path = "slider_puzzle_project_fall2021_assets-2022/" + selection
-        
-        # display error image if path not found
-        if selection.lower() != "mario.puz" and \
-        selection.lower() != "yoshi.puz" and \
-        selection.lower() != "fifteen.puz" and \
-        selection.lower() != "smiley.puz" and \
-        selection.lower() != "luigi.puz": 
-            self.get_error_img()
 
         self.puzzle.clear()
 
         self.puzzle = Puzzle(path)
-
+        
         self.load_puzzle(self.puzzle.get_path())
+
+    def after_error(self):
+        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\n")
+        path = "slider_puzzle_project_fall2021_assets-2022/" + selection
+        self.puzzle = Puzzle(path)
+        self.load_puzzle(self.puzzle.get_path())
+        
            
     def load_button(self):
         path = "slider_puzzle_project_fall2021_assets-2022/Resources/loadbutton.gif"
@@ -155,10 +183,23 @@ class PuzzleRunner:
         self.score.t.hideturtle()
 
         return False
+    
+    def error(self):
+        path = "slider_puzzle_project_fall2021_assets-2022/Resources/file_error.gif"
+        t = Tile(0, 0, path, self.screen)
+        t.display_img()    
+        time.sleep(1)
+        t.t.hideturtle()
+        self.after_error()
 
     def load_puzzle(self, p, scrambled=True):
-        lst = get_puzzle(p)
+        
+        lst = get_puzzle(p) 
 
+        if not lst:
+            self.error()
+
+        
         x = -286.5
         y = 191
         
@@ -213,6 +254,14 @@ class PuzzleRunner:
             if win:
                 self.win()
 
+    def leader_error(self):
+        path = "slider_puzzle_project_fall2021_assets-2022/Resources/leaderboard_error.gif"
+        t = Tile(0, 0, path, self.screen)
+        t.display_img()    
+        time.sleep(2)
+        turtle.bye()
+        
+
     def check_win(self):
         lst = []
         for row in self.puzzle.tiles:
@@ -256,6 +305,9 @@ class PuzzleRunner:
     # Read Data 
     def update_leaders(self):
         newFile = 'leaderboards.data' 
-        with open(newFile, 'rb') as f:
-            self.leaderboard_name = pickle.load(f)
+        try:
+            with open(newFile, 'rb') as f:
+                self.leaderboard_name = pickle.load(f)
+        except FileNotFoundError:
+            self.leader_error()
 

@@ -14,14 +14,20 @@ def get_puzzle(file_path):
 
     # ---- Read File & strip/split/store as list ---- #
     puzzle = []
-    with open(file_path, "r") as f:
-        puzzle = f.readlines()
+    try:
+        with open(file_path, "r") as f:
+            puzzle = f.readlines()
+
+    except OSError:
+        print("NO")
+        return
+
     combine = {}
     for each in puzzle:
         puzzle = each.strip().split(": ")
         combine[puzzle[0]] = puzzle[1]
-    
-                
+
+
     # ---- Storing Thumbnail as a var ---- #
     thumbnail = combine['thumbnail']
 
@@ -56,6 +62,5 @@ def get_puzzle(file_path):
     for i in keys_dict_shuffled.keys():
         image_path = keys_dict_shuffled[i]
         shuffled_img_list.append(image_path)
-     
-    # ---- return dictionaries, number, thumbnail---- #
-    return img_list, number, shuffled_img_list, thumbnail
+
+    return img_list, number, shuffled_img_list, thumbnail    

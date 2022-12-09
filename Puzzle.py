@@ -1,6 +1,3 @@
-import math
-from Tile import Tile
-from pprint import pprint
 
 class Puzzle:
     def __init__(self, path) -> None:

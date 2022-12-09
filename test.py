@@ -1,6 +1,9 @@
 import pickle
 
+d = {
+    12: "Harry",
+    10: "Hary"
+}
 newFile = 'leaderboards.data' 
-with open(newFile, 'rb') as f:
-    leaderboard_name = pickle.load(f)
-    print(leaderboard_name)
+with open(newFile, 'wb') as f:
+    pickle.dump(d, f)
