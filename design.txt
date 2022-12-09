@@ -1,0 +1,27 @@
+"""
+Chase Coogan
+CS 5001
+Fall 2022
+Design.txt
+"""
+
+The 15 puzzle sliding game was a lot of fun to create. I used a variation
+of classes and functions to make it possible. There were many different 
+Python libraries that I needed to import to make it work smoothly. For example
+I imported Math, Pickle, time, functools and more.
+
+I refactored my code probably 20+ times throughout this experience. I started out
+creating my game using functions and quickly realized that it was not efficient.
+Throughout the process, I began creating classes for the gameboard to allow me to 
+use objects throughout to get a handful of needed components. The sliding puzzle 
+requires many different Turtle objects to be created which was one of the driving 
+factors to use classes. 
+
+In order to get the sliding to work, I imported Partial which allows onclick() to take
+x,y coordinates to make the sliding work faster. The data structures that I used
+throughout were mainly lists and dictionaries. If any lists were used they were either
+converted to a dictionary or nested.
+
+In the end is the result of a fully functional 15-sliding puzzle that users can play
+with and have their name appear on the leader board if they successfuly won within the
+player move criteria.
