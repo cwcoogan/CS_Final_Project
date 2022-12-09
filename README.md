@@ -1,4 +1,7 @@
 # 15 Piece Sliding Puzzle Game
+The 15 peice sliding puzzle game takes a shuffled image and gives the user however
+many attempts they decide to unshuffle and display the image in its correct format.
+Try and get your name on the leaderboard!
 
 ## **How to play:**
 1. Clone the repository and open the parent folder
@@ -21,6 +24,6 @@ file to generate a leaderboards.data file THEN run the game
 3. Img resizer: [Img Resizer](https://www.iloveimg.com/)
 
 
-
-
-
+## **Design Structure**
+This game is fully built on Python and utilizes Turtles library to display the UI.
+Additional modules include; Pickle, Functools, Math, Partial, Time, and many more.
