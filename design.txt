@@ -5,6 +5,13 @@ Fall 2022
 Design.txt
 """
 
+My design process for the 15 puzzle sliding game change many different 
+times throughout the development of the game. I began by creating my game 
+using various functions and quickly found that to be inefficient. From this
+point I refactored my code and 
+
+
+
 The 15 puzzle sliding game was a lot of fun to create. I used a variation
 of classes and functions to make it possible. There were many different 
 Python libraries that I needed to import to make it work smoothly. For example

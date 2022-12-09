@@ -167,9 +167,9 @@ class PuzzleRunner:
                    of what puzzle to load. Then clears the current
                    puzzle and begins to load the new puzzle.
         """
-        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz\n")
+        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz\ncookie.puz\n")
         path = "slider_puzzle_project_fall2021_assets-2022/" + selection
-        
+
         self.puzzle.clear()
 
         self.puzzle = Puzzle(path)
@@ -185,7 +185,8 @@ class PuzzleRunner:
         Returns -- After getting an error message, this
                    helper function will reload the game
         """
-        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load. Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz")
+        selection = turtle.textinput("Load Puzzle", "Enter the name of the puzzle you wish to load.\n" 
+        "Choice are:\n\nluigi.puz:\nsmiley.puz\nfifteen.puz\nyoshi.puz\nmario.puz\nmalformed_mario.puz\n")
         path = "slider_puzzle_project_fall2021_assets-2022/" + selection
         self.puzzle = Puzzle(path)
         self.load_puzzle(self.puzzle.get_path())
