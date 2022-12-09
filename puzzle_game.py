@@ -14,8 +14,7 @@ def main():
 
     Parameters -- None
 
-    Returns -- calls the PuzzleRunner Class and 
-               begins the puzzle game.
+    Returns -- Begins the game
     """
     runner = PuzzleRunner()
     runner.begin_game()
