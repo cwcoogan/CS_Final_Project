@@ -1,7 +1,7 @@
-# 15 Piece Sliding Puzzle Game 
+# 15 Piece Sliding Puzzle Game :arrow_forward:
 The 15 peice sliding puzzle game takes a shuffled image and gives the user however
 many attempts they decide to unshuffle and display the image in its correct format.
-Try and get your name on the leaderboard! :arrow_forward:
+Try and get your name on the leaderboard! 
 
 ## **How to play:**
 1. Clone the repository and open the parent folder
