@@ -25,4 +25,11 @@ In the end is the result of a fully functional 15-sliding puzzle that users can 
 and have their name appear on the leader board if they successfuly won within the
 player move criteria. 
 
+How to play:
+1. Open the parent folder in your IDE
+2. run game using puzzle_game.py
+3. IF leaderboard.data error occurs (or is not found) -> RUN the build_leaderboards_file.py 
+file to generate a leaderboards.data file THEN run the game
+4. Have fun!
+
 P.S. - Load 'cookie.puz' in the game for a fun puzzle! Enjoy.
